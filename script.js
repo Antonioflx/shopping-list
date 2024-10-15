@@ -1,23 +1,26 @@
-const form = document.querySelector('#item-form');
-const clearBtn = document.querySelector('#clear');
-const ul = document.querySelector('ul');
-const filter = document.querySelector('#filter');
+const form = document.querySelector('#item-form'); // formulario
+const clearBtn = document.querySelector('#clear'); // butao de clenar tudo
+const ul = document.querySelector('ul'); // a lista
+const filter = document.querySelector('#filter'); // o texto de filtro.
 
 function onSubmit (evt) {
+    // evitar o submit
     evt.preventDefault();
     
     const itemList = document.querySelectorAll('li');
 
     const item = document.querySelector('#item-input').value;
     
+    // fazer com que o usuario digite algo
     if(item === '' ) {
         alert('Por favor, verifique os seus dados.');
         return;
-    } else if (itemList.length === 0) {
-        // criar caso n tenhna nenhuma
+    } else if (itemList.length === 0) { 
+        // caso não tenha nenhum item, ele criará o novo item
         return newLi();
     } else {
-        return verItems();
+        // fazer a verificação se o item já existe ou n
+        return verItems(); 
         
     }
     
@@ -73,6 +76,7 @@ const criarLi = () => {
 
     lastChild.insertAdjacentElement('afterend', newLi);
 
+    // criar o button.
     const button = createButton('remove-item btn-link text-red');
     newLi.appendChild(button);
 }
