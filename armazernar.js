@@ -32,7 +32,7 @@ const newLi = () => {
     const item = document.querySelector('#item-input').value;
 
     const newLi = document.createElement('li');
-    const newLiText = document.createTextNode(item);
+    const newLiText = document.createTextNode(`${item}`);
     const button = createButton('remove-item btn-link text-red');
 
     newLi.appendChild(newLiText);
@@ -48,11 +48,8 @@ const newLi = () => {
 const verItems = () => {
     const itemList = document.querySelectorAll('li'); // retorna um NodeList
     
-    // Fazendo que sempre que o usuario digite, a primeira letra seja maiuscula.
-    const item = 
-        document.querySelector('#item-input').value.charAt(0).toUpperCase() +
-        document.querySelector('#item-input').value.slice(1);
-
+    const item = document.querySelector('#item-input').value;
+    
     const existe = 
         Array.from(itemList) // Array.from(a variavel) -> transforma o NodeList em Array.
         .some(element => { // some() -> faz a verificação e retorna true ou false.
@@ -70,10 +67,7 @@ const verItems = () => {
 }
 
 const criarLi = () => {
-    // Fazendo que sempre que o usuario digite, a primeira letra seja maiuscula.
-    const item = 
-        document.querySelector('#item-input').value.charAt(0).toUpperCase() +
-        document.querySelector('#item-input').value.slice(1);
+    const item = document.querySelector('#item-input').value;
 
     const lastChild = document.querySelector('li:last-child');
     const newLi = document.createElement('li');
@@ -110,20 +104,20 @@ const createIcon = classe => {
 // funcao para filtrar o item
 
 function onFilter(evt) {
+    // convert to lower case
     const itemList = ul.getElementsByTagName('li'); // HTML COLECTION -> transformar em array. para fazer um loop.
     
     // transformar em array
     Array.from(itemList)
-    .forEach(item => {
-        // convert to lower case
-        const text = evt.target.value.toLowerCase();
-        const itemName = item.firstChild.textContent.trim();
-        if(itemName.toLowerCase().indexOf(text) !== -1) {
-            item.style.display = 'flex';
-        } else {
-            item.style.display = 'none';
+        .forEach(item => {
+            const text = evt.target.value.toLowerCase();
+            const itemName = item.firstChild.textContent.trim();
+            if(itemName.toLowerCase().indexOf(text) !== -1) {
+                item.style.display = 'flex';
+            } else {
+                item.style.display = 'none';
             }
-    })
+        })
 }
 
 
