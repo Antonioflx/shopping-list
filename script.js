@@ -43,7 +43,7 @@ const newLi = () => {
 }
 
 
-// funcao para verificar se ja existe:.
+// funcao para verificar se o item digitado pelo usuario ja existe:.
 
 const verItems = () => {
     const itemList = document.querySelectorAll('li'); // retorna um NodeList
