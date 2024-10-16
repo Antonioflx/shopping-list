@@ -29,7 +29,10 @@ function onSubmit (evt) {
 // funcao para criar caso nao tenha nenhum item;
 
 const newLi = () => {
-    const item = document.querySelector('#item-input').value;
+    /// Fazendo que sempre que o usuario digite, a primeira letra seja maiuscula. E, o restante minuscula.
+    const item = 
+    document.querySelector('#item-input').value.charAt(0).toUpperCase() +
+    document.querySelector('#item-input').value.slice(1).toLowerCase();
 
     const newLi = document.createElement('li');
     const newLiText = document.createTextNode(item);
@@ -48,11 +51,12 @@ const newLi = () => {
 const verItems = () => {
     const itemList = document.querySelectorAll('li'); // retorna um NodeList
     
-    // Fazendo que sempre que o usuario digite, a primeira letra seja maiuscula.
+    // Fazendo que sempre que o usuario digite, a primeira letra seja maiuscula. E, o restante minuscula.
     const item = 
         document.querySelector('#item-input').value.charAt(0).toUpperCase() +
-        document.querySelector('#item-input').value.slice(1);
+        document.querySelector('#item-input').value.slice(1).toLowerCase();
 
+    console.log(item);
     const existe = 
         Array.from(itemList) // Array.from(a variavel) -> transforma o NodeList em Array.
         .some(element => { // some() -> faz a verificação e retorna true ou false.
@@ -70,11 +74,12 @@ const verItems = () => {
 }
 
 const criarLi = () => {
-    // Fazendo que sempre que o usuario digite, a primeira letra seja maiuscula.
+    // Fazendo que sempre que o usuario digite, a primeira letra seja maiuscula. E, o restante minuscula.
     const item = 
         document.querySelector('#item-input').value.charAt(0).toUpperCase() +
-        document.querySelector('#item-input').value.slice(1);
+        document.querySelector('#item-input').value.slice(1).toLowerCase();
 
+        console.log(item);
     const lastChild = document.querySelector('li:last-child');
     const newLi = document.createElement('li');
     const newLiText = document.createTextNode(`${item}`);
