@@ -56,7 +56,6 @@ const verItems = () => {
         document.querySelector('#item-input').value.charAt(0).toUpperCase() +
         document.querySelector('#item-input').value.slice(1).toLowerCase();
 
-    console.log(item);
     const existe = 
         Array.from(itemList) // Array.from(a variavel) -> transforma o NodeList em Array.
         .some(element => { // some() -> faz a verificação e retorna true ou false.
@@ -79,7 +78,6 @@ const criarLi = () => {
         document.querySelector('#item-input').value.charAt(0).toUpperCase() +
         document.querySelector('#item-input').value.slice(1).toLowerCase();
 
-        console.log(item);
     const lastChild = document.querySelector('li:last-child');
     const newLi = document.createElement('li');
     const newLiText = document.createTextNode(`${item}`);
